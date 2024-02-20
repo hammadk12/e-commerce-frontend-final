@@ -13,7 +13,7 @@ const Header: React.FC = () => {
           <div className="flex items-center space-x-2">
             {/* Assuming you have the pear logo at public/pear-logo.svg */}
             <Image src="/pear-logo.png" alt="Pear Logo" width={40} height={40} />
-            <span className="text-xl font-bold">Your Brand</span>
+            <span className="text-xl font-bold">Pear</span>
           </div>
           
           {/* Navigation Links */}
