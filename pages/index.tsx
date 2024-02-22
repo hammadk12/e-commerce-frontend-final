@@ -1,37 +1,14 @@
-// pages/index.tsx
+// This page is for the home page when application is opened
 
 import React from 'react';
-import Header from '../components/Header';
 
-const Home: React.FC = () => {
+const HomePage: React.FC = () => {
   return (
     <div>
-      <Header />
-      <main>
-        {/* Hero Section */}
-        <section className="hero">
-          <h1>Welcome to MyTechStore</h1>
-          {/* More content */}
-        </section>
-
-        {/* Featured Products */}
-        <section className="featured-products">
-          <h2>Featured Products</h2>
-          {/* Product list or placeholders */}
-        </section>
-
-        {/* Categories */}
-        <section className="categories">
-          <h2>Browse by Category</h2>
-          {/* Category list or placeholders */}
-        </section>
-
-        {/* Other Sections as needed */}
-      </main>
-      
+      <h1>Welcome to My Website</h1>
+      {/* More content here */}
     </div>
   );
 };
 
-export default Home;
-
+export default HomePage;
