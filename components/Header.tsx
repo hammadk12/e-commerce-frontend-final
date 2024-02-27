@@ -11,7 +11,7 @@ const Header: React.FC = () => {
         {/* Logo */}
         <div className="flex items-center">
           <Image src="/pear-logo.png" alt="Logo" width={50} height={50} />
-          <span className="text-xl font-bold ml-2 text-gray-900">PearTech</span>
+          <span className="text-xl font-bold ml-2 text-gray-900">PearTech&nbsp;&nbsp;&nbsp;&nbsp;</span>
         </div>
 
         {/* Hamburger menu for mobile */}
@@ -35,10 +35,10 @@ const Header: React.FC = () => {
         {/* Navigation Menu */}
         <nav className={`${isNavOpen ? 'flex' : 'hidden'} absolute top-16 right-4 md:relative md:top-auto md:right-auto md:flex bg-neutral-100 md:bg-transparent z-20`}>
           <ul className="flex flex-col md:flex-row md:space-x-4">
-            <li><a href="#" className="block text-gray-900 hover:text-blue-600 p-2">&nbsp;&nbsp;&nbsp;Home</a></li>
-            <li><a href="#" className="block text-gray-900 hover:text-blue-600 p-2">&nbsp;&nbsp;&nbsp;Shop</a></li>
-            <li><a href="#" className="block text-gray-900 hover:text-blue-600 p-2">&nbsp;&nbsp;&nbsp;About</a></li>
-            <li><a href="#" className="block text-gray-900 hover:text-blue-600 p-2">&nbsp;&nbsp;&nbsp;Contact</a></li>
+            <li><a href="#" className="block text-gray-900 hover:text-blue-600 p-2">&nbsp;&nbsp;Home</a></li>
+            <li><a href="#" className="block text-gray-900 hover:text-blue-600 p-2">&nbsp;&nbsp;Shop</a></li>
+            <li><a href="#" className="block text-gray-900 hover:text-blue-600 p-2">&nbsp;&nbsp;About</a></li>
+            <li><a href="#" className="block text-gray-900 hover:text-blue-600 p-2">&nbsp;&nbsp;Contact</a></li>
           </ul>
         </nav>
 
