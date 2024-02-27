@@ -4,8 +4,8 @@ import React from 'react';
 
 const HomePage: React.FC = () => {
   return (
-    <div>
-      <h1>Welcome to My Website</h1>
+    <div className='border 5 border-red-500 flex justify-center'>
+      <h1 className=''></h1>
       {/* More content here */}
     </div>
   );
