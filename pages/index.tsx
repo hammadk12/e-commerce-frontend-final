@@ -3,6 +3,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Hero from '../components/Hero';
 import Navbar from '../components/Navbar';
+import { Http2ServerResponse } from 'http2';
 // Defining props types
 type HomePageProps = {
   message: string;
@@ -14,15 +15,15 @@ type HomePageProps = {
 const HomePage: React.FC<HomePageProps> = ({ children }) => {
   return (
     <>
+    <h1>hi</h1>
       <Head>
         <title>PearTech- Everything Tech Related</title>
         <meta name="description" content='Welcome to PearTech, featuring all tech products!'/>
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <Hero heading="PearTech" message="We have everything you need." />
-      <Navbar />
       <div>
-        
+        <p></p>
       </div>
     </>
   );
