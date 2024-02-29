@@ -1,13 +1,28 @@
 // This page is for the home page when application is opened
+import Head from 'next/head';
+import Image from 'next/image';
+import Hero from '../components/Hero';
+// Defining props types
+type HomePageProps = {
+  message: string;
+  heading: string;
+  children?: React.ReactNode;
+};
 
-import React from 'react';
-
-const HomePage: React.FC = () => {
+// Taking chidren as prop to display Head & Hero tags
+const HomePage: React.FC<HomePageProps> = ({ children }) => {
   return (
-    <div>
-      <h1 className=''></h1>
-      {/* More content here */}
-    </div>
+    <>
+      <Head>
+        <title>PearTech- Everything Tech Related</title>
+        <meta name="description" content='Welcome to PearTech, featuring all tech products!'/>
+        <link rel='icon' href='/favicon.ico' />
+      </Head>
+      <Hero heading="PearTech" message="We have everything you need."/>
+      <div>
+        Welcome to PearTech.
+      </div>
+    </>
   );
 };
 
