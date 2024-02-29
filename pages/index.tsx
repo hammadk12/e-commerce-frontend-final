@@ -20,10 +20,7 @@ const HomePage: React.FC<HomePageProps> = ({ children }) => {
         <meta name="description" content='Welcome to PearTech, featuring all tech products!'/>
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <Hero heading="PearTech" message="We have everything you need." />
-      <div>
-        <p></p>
-      </div>
+      <Hero heading="PearTech" message="We have everything you need."/>
     </>
   );
 };
