@@ -15,7 +15,6 @@ type HomePageProps = {
 const HomePage: React.FC<HomePageProps> = ({ children }) => {
   return (
     <>
-    <h1>hi</h1>
       <Head>
         <title>PearTech- Everything Tech Related</title>
         <meta name="description" content='Welcome to PearTech, featuring all tech products!'/>
