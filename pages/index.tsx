@@ -2,6 +2,7 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import Hero from '../components/Hero';
+import Navbar from '../components/Navbar';
 // Defining props types
 type HomePageProps = {
   message: string;
@@ -18,9 +19,10 @@ const HomePage: React.FC<HomePageProps> = ({ children }) => {
         <meta name="description" content='Welcome to PearTech, featuring all tech products!'/>
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <Hero heading="PearTech" message="We have everything you need."/>
+      <Hero heading="PearTech" message="We have everything you need." />
+      <Navbar />
       <div>
-        Welcome to PearTech.
+        
       </div>
     </>
   );
