@@ -2,8 +2,8 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import Hero from '../components/Hero';
-import Navbar from '../components/Navbar';
-import { Http2ServerResponse } from 'http2';
+import Slider from '../components/Slider';
+import SliderData from '../components/SliderData';
 // Defining props types
 type HomePageProps = {
   message: string;
@@ -21,6 +21,7 @@ const HomePage: React.FC<HomePageProps> = ({ children }) => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <Hero heading="PearTech" message="We have everything you need."/>
+      <Slider slides={SliderData}/>
     </>
   );
 };
