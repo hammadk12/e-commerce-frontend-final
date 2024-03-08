@@ -29,38 +29,36 @@ if(!Array.isArray(slides) || slides.length <= 0) {
 }
 
   return (
-    <div id='gallery' className='max-w-[1240px] mx-auto'>
+    <div id='gallery' className='max-w-[1240px]  max-h-[1200px] mx-auto'>
         <h1 className='text-2xl font-bold text-center p-4'>Gallery</h1>
-        
-            {slides.map((slide, index) => (
-              <div 
-                key={index} 
-                className={
-                 index === current 
-                  ? 'opacity-[1] ease-in duration-1000'
-                  : 'opacity-0'
-              }
-            >
-                <div className='relative flex justify-center p-4'>
-                    <button onClick={prevSlide} className='absolute top-[50%] left-[30px] text-white/70 cursor-pointer select-none z-[2]'>
-                        <FaArrowCircleLeft size={50} />
-                    </button>
-                {index === current && (
-                    <Image  
-                        src={slide.image} 
-                        alt={`Slide ${index}`} 
-                        width='1440' height='600' 
-                        className='object-cover flex justify-center'
-                    />
-                )}
-                <button onClick={nextSlide} className='absolute top-[50%] right-[30px] text-white/70 cursor-pointer select-none z-[2]'>
-                    <FaArrowCircleRight size={50} />
-                </button>
-               </div>
-              </div>
-            ))}
-        </div>
+         <div className='relative w-full h-[600px]'> {/* Fixed height container */}
+         {slides.map((slide, index) => (
+          <div 
+            key={index} 
+            className={
+             index === current 
+              ? 'opacity-[1] ease-in duration-1000'
+              : 'opacity-0'
+            }
+            style={{ position: 'absolute', inset: 0 }} // Each slide absolutely positioned
+          >
+            <Image  
+              src={slide.image} 
+              alt={`Slide ${index}`} 
+              layout='fill'
+              objectFit='cover'
+            />
+          </div>
+        ))}
+        <button onClick={prevSlide} className='absolute top-[50%] left-[30px] translate-y-[-50%] text-white/70 cursor-pointer select-none z-[2]'>
+          <FaArrowCircleLeft size={50} />
+        </button>
+        <button onClick={nextSlide} className='absolute top-[50%] right-[30px] translate-y-[-50%] text-white/70 cursor-pointer select-none z-[2]'>
+          <FaArrowCircleRight size={50} />
+        </button>
+      </div>
+    </div>
   );
 };
 
-export default Slider
+export default Slider;
