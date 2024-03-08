@@ -45,8 +45,9 @@ if(!Array.isArray(slides) || slides.length <= 0) {
             <Image  
               src={slide.image} 
               alt={`Slide ${index}`} 
-              layout='fill'
-              objectFit='cover'
+              width={1440}
+              height={600}
+              className='object-cover w-full h-full'
             />
           </div>
         ))}
