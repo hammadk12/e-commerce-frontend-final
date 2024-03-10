@@ -17,6 +17,7 @@ const Contact = () => {
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
+        // Endpoint tested and successful
         try {
         const response = await fetch('http://localhost:3000/contact/submit', {
             method: 'POST',
