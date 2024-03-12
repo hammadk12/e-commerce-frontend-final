@@ -8,11 +8,11 @@ const Footer = () => {
   return (
     <div className='w-full'>
       <div className='text-center py-4 font-bold'>
-        <Link href="/" target='_blank' className='px-1'>
+        <Link href="/"  className='px-1'>
           Privacy
         </Link>
         <span>|</span>
-        <Link href="/" target='_blank' className='px-1'>
+        <Link href="/"  className='px-1'>
           Terms
         </Link>
         <span>|</span>

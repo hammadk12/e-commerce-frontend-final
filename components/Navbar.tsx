@@ -42,7 +42,7 @@ const Navbar = () => {
                   <Link href='/'>About</Link>
                 </li>
                 <li className='p-4'>
-                  <Link href='http://localhost:3000/contact'>Contact</Link>
+                  <Link href='http://localhost:3001/contact'>Contact</Link>
                 </li>
                 <li className='p-4'>
                   <Link href='/'>Login</Link>

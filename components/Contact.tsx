@@ -19,22 +19,27 @@ const Contact = () => {
 
         // Endpoint tested and successful
         try {
-        const response = await fetch('http://localhost:3000/contact/submit', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(formData),
-        });
+            const response = await fetch('http://localhost:3000/contact/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });            
+
+            console.log('Raw reponse:', response);
 
         const data = await response.json();
+        console.log('Response data:', data);
+
         if (response.ok) {
             toast.success('Message sent successfully!');
             setFormData({ name: '', email: '', subject: '', message: '' }); // Reset form
         } else {
-            toast.error('Failed to send message. Please try again.');
+            toast.error(data.message || 'Failed to send message. Please try again.');
         }
     } catch (error) {
+        console.error('An error occurred:', error);
         toast.error('An error occurred while sending the message.');
     }
 };
