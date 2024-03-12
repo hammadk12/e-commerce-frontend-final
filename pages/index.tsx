@@ -5,6 +5,7 @@ import Hero from '../components/Hero';
 import Slider from '../components/Slider';
 import SliderData from '../components/SliderData';
 import Instagram from '../components/Instagram';
+
 // Defining props types
 type HomePageProps = {
   message: string;
@@ -21,7 +22,7 @@ const HomePage: React.FC<HomePageProps> = ({ children }) => {
         <meta name="description" content='Welcome to PearTech, featuring all tech products!'/>
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <Hero heading="PearTech" message="We have everything you need."/>
+      <Hero heading="PearTech" message="We have everything you need." message2="Shop" redirectPath='/shop'/>
       <Slider slides={SliderData}/>
       <Instagram />
     </>
