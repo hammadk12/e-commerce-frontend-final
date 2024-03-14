@@ -21,7 +21,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const changeStyle = () => {
-      if(window.scrollY >= 900) {
+      if(window.scrollY >= 600) {
         setColor('bg-white');
         setTextColor('text-black');
         setBorderStyle('border-b-2 border-black'); // Set border color to black when scrolled
@@ -45,7 +45,7 @@ const Navbar = () => {
             <Link href='/'>
               <h1 className={`font-bold text-4xl ${textColor}`}>PearTech</h1>
             </Link>
-            <ul className={`hidden sm:flex text-lg ${textColor}`}>
+            <ul className={`hidden sm:flex text-xl ${textColor}`}>
                 <li className='p-4'>
                   <Link href='/'>Home</Link>
                 </li>

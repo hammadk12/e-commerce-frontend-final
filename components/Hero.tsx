@@ -20,7 +20,7 @@ const Hero: React.FC<HeroProps> = ({ heading, message, message2, redirectPath })
       router.push(redirectPath);
     };
 
-    // function to change visibility when scrolled 90 px
+    // function to change visibility when scrolled 190 px
     useEffect(() => {
       const checkScroll = () => {
         if (window.scrollY > 190) {
@@ -42,8 +42,8 @@ const Hero: React.FC<HeroProps> = ({ heading, message, message2, redirectPath })
         {/* Overlay */}
         <div className='absolute top-0 left-0 right-0 bottom-0 bg-black/20 z-[2]'/>
         <div className={`p-5 text-white z-[2] mt-[-10rem] ${!isVisible ? 'hidden' : ''}`}>
-            <h2 className='text-5xl font-bold text-white'>{heading}</h2>
-            <p className='py-5 text-xl'>{message}</p>
+            <h2 className='text-3xl lg:text-9xl md:text-6xl font-bold text-white mt-20'>{heading}</h2>
+            <p className='py-5 text-2xl'>{message}</p>
             <button className='px-8 py-2 border' onClick={handleCLick}>{message2}</button>
         </div>
     </div>
