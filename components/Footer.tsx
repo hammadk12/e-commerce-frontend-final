@@ -12,7 +12,7 @@ const Footer = () => {
           Privacy
         </Link>
         <span>|</span>
-        <Link href="/"  className='px-1'>
+        <Link href="http://localhost:3001/terms"  className='px-1'>
           Terms
         </Link>
         <span>|</span>

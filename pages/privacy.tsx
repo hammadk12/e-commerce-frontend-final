@@ -55,7 +55,7 @@ const privacy: React.FC = () => {
         <h2 className='text-xl font-semibold mt-4'>Contact Information</h2>
         <p>If you have any questions about this Privacy Policy, the practices of this site, or your dealings with this site, please contact us from the 
             <Link href="http://localhost:3001/contact">
-            <span className='text-blue-600 hover:text-blue-800'>Contact</span>
+            <span className='text-blue-600 hover:text-blue-800'> Contact</span>
             </Link> page.    
         </p>
       </section>
