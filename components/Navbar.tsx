@@ -14,6 +14,11 @@ const Navbar = () => {
     setNav(!nav)
   };
 
+  // function to make mobile menu hidden when link clicked
+  const handleLinkClick = () => {
+    setNav(false);
+  };
+
   useEffect(() => {
     const changeStyle = () => {
       if(window.scrollY >= 900) {
@@ -40,7 +45,7 @@ const Navbar = () => {
             <Link href='/'>
               <h1 className={`font-bold text-4xl ${textColor}`}>PearTech</h1>
             </Link>
-            <ul className={`hidden sm:flex ${textColor}`}>
+            <ul className={`hidden sm:flex text-lg ${textColor}`}>
                 <li className='p-4'>
                   <Link href='/'>Home</Link>
                 </li>
@@ -60,30 +65,30 @@ const Navbar = () => {
 
         {/* Mobile Button */}
         <div onClick={handleNav} className='block sm:hidden z-10 cursor-pointer'>
-          {nav ? <AiOutlineClose size={20} style={{color: `${textColor}`}}/> : <AiOutlineMenu size={20} style={{color: `${textColor}`}}/>}
+          {nav ? <AiOutlineClose size={20} style={{color: 'white'}}/> : <AiOutlineMenu size={20} style={{color: 'white'}}/>}
         </div>
         {/* Mobile Menu */}
         <div className={
             nav 
-              ? 'sm:hidden absolute top-0 left-0 right-0 bottom-0 flex justify-center items-center w-full h-screen bg-black text-center ease-in duration-300'
+              ? 'sm:hidden absolute top-0 left-0 right-0 bottom-0 flex justify-center items-center w-full h-screen bg-black text-center text-white ease-in duration-300'
               : 'sm:hidden absolute top-0 left-[-100%] right-0 bottom-0 flex justify-center items-center w-full h-screen bg-black text-center ease-in duration-300'
               }
             >
           <ul>
                 <li className='p-4 text-4xl hover:scale-110 transition-transform duration-300'>
-                  <Link href='/'>Home</Link>
+                  <Link href='/' onClick={handleLinkClick}>Home</Link>
                 </li>
                 <li className='p-4 text-4xl hover:scale-110 transition-transform duration-300'>
-                  <Link href='/'>Shop</Link>
+                  <Link href='/' onClick={handleLinkClick}>Shop</Link>
                 </li>
                 <li className='p-4 text-4xl hover:scale-110 transition-transform duration-300'>
-                  <Link href='/'>About</Link>
+                  <Link href='/' onClick={handleLinkClick}>About</Link>
                 </li>
                 <li className='p-4 text-4xl hover:scale-110 transition-transform duration-300'>
-                  <Link href='/'>Contact</Link>
+                  <Link href='http://localhost:3001/contact' onClick={handleLinkClick}>Contact</Link>
                 </li>
                 <li className='p-4 text-4xl hover:scale-110 transition-transform duration-300'>
-                  <Link href='/'>Login</Link>
+                  <Link href='/' onClick={handleLinkClick}>Login</Link>
                 </li>
           </ul>
         </div>
