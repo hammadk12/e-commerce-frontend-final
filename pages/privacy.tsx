@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'next/link';
 import Hero from '../components/Hero';
+import Head from 'next/head';
 
 const privacy: React.FC = () => {
   return (
@@ -14,6 +15,10 @@ const privacy: React.FC = () => {
           />
 
     <div className='container mx-auto p-12'>
+        <Head>
+            <title>Privacy Policy - PearTech</title>
+            <meta name='description' content="PearTech's Privacy Policy. Understand how we collect, use, protect, and handle your personal information."/>
+        </Head>
       <h1 className='text-2xl font-bold text-center my-6'>Privacy Policy</h1>
 
       <section>

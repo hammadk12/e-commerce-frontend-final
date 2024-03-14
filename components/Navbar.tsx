@@ -1,13 +1,12 @@
 import React, {useEffect, useState} from 'react'
 import Link from 'next/link';
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
-import { BiBorderBottom } from 'react-icons/bi';
 
 // Changing state so mobile menu is not always showing
 const Navbar = () => {
   const [nav, setNav] = useState(false)
-  const [color, setColor] = useState('transparent')
-  const [textColor, setTextColor] = useState('white')
+  const [color, setColor] = useState('bg-transparent')
+  const [textColor, setTextColor] = useState('text-white')
   const [borderStyle, setBorderStyle] = useState('');
 
   const handleNav = () => {
@@ -40,7 +39,7 @@ const Navbar = () => {
 
   return (
     <div style={{ transition: 'background-color 0.3s ease-in-out, border-color 0.3s ease-in-out, color 0.3s ease-in-out' }} 
-         className={`${color} ${borderStyle} fixed left-0 top-0 w-full z-20`}>
+         className={`${color} ${textColor} ${borderStyle} fixed left-0 top-0 w-full z-20`}>
         <div className='max-w-[1240px] m-auto flex justify-between items-center p-4'>
             <Link href='/'>
               <h1 className={`font-bold text-4xl ${textColor}`}>PearTech</h1>
