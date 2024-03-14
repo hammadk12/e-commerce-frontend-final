@@ -1,37 +1,46 @@
 import React, {useEffect, useState} from 'react'
 import Link from 'next/link';
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
+import { BiBorderBottom } from 'react-icons/bi';
 
 // Changing state so mobile menu is not always showing
 const Navbar = () => {
   const [nav, setNav] = useState(false)
   const [color, setColor] = useState('transparent')
   const [textColor, setTextColor] = useState('white')
+  const [borderStyle, setBorderStyle] = useState('');
 
   const handleNav = () => {
     setNav(!nav)
   };
 
   useEffect(() => {
-    const changeColor = () => {
-      if(window.scrollY >= 90) {
-        setColor('#ffffff')
-        setTextColor('#000000')
+    const changeStyle = () => {
+      if(window.scrollY >= 900) {
+        setColor('bg-white');
+        setTextColor('text-black');
+        setBorderStyle('border-b-2 border-black'); // Set border color to black when scrolled
       } else {
-        setColor('transparent')
-        setTextColor('#ffffff')
+        setColor('bg-transparent');
+        setTextColor('text-white');
+        setBorderStyle(''); 
       }
-    }
-    window.addEventListener('scroll', changeColor);
+    };
+    window.addEventListener('scroll', changeStyle);
+
+    return () => {
+      window.removeEventListener('scroll', changeStyle);
+    };
   }, []);
 
   return (
-    <div style={{backgroundColor: `${color}`}} className='fixed left-0 top-0 w-full z-10 ease-in duration-300'>
-        <div className='max-w-[1240px] m-auto flex justify-between items-center p-4 text-white'>
+    <div style={{ transition: 'background-color 0.3s ease-in-out, border-color 0.3s ease-in-out, color 0.3s ease-in-out' }} 
+         className={`${color} ${borderStyle} fixed left-0 top-0 w-full z-20`}>
+        <div className='max-w-[1240px] m-auto flex justify-between items-center p-4'>
             <Link href='/'>
-              <h1 style={{color: `${textColor}`}} className='font-bold text-4xl'>PearTech</h1>
+              <h1 className={`font-bold text-4xl ${textColor}`}>PearTech</h1>
             </Link>
-            <ul style={{color: `${textColor}`}} className='hidden sm:flex'>
+            <ul className={`hidden sm:flex ${textColor}`}>
                 <li className='p-4'>
                   <Link href='/'>Home</Link>
                 </li>
