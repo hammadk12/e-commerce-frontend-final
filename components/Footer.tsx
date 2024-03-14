@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <div className='w-full'>
       <div className='text-center py-4 font-bold'>
-        <Link href="/"  className='px-1'>
+        <Link href="http://localhost:3001/privacy"  className='px-1'>
           Privacy
         </Link>
         <span>|</span>
