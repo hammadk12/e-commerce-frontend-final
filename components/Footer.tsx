@@ -16,7 +16,7 @@ const Footer = () => {
           Terms
         </Link>
         <span>|</span>
-        <Link href='http://localhost:3000/contact' className='px-1'>
+        <Link href='http://localhost:3001/contact' className='px-1'>
           Contact
         </Link>
         <p>Copyright © {current_year}, PearTech. All Rights Reserved.</p>
