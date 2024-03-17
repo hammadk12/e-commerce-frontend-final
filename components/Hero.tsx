@@ -6,18 +6,23 @@ interface HeroProps {
     heading: string;
     message: string;
     message2: string;
-    redirectPath: string;
+    redirectPath?: string; // Optional redirect path
+    onClickExplore?: () => void; // Optional custom click handler
 }
 
 // taking heading and message props to display
-const Hero: React.FC<HeroProps> = ({ heading, message, message2, redirectPath }) => {
+const Hero: React.FC<HeroProps> = ({ heading, message, message2, redirectPath, onClickExplore }) => {
   const router = useRouter();
   const [isVisible, setIsVisible] = useState(true);
 
     // Function to handle button click
     const handleClick = () => {
+      if (onClickExplore) {
+        onClickExplore();
+      } else if (redirectPath) {
       router.push(redirectPath);
-    };
+    }
+  };
 
     // function to change visibility when scrolled 190 px
     useEffect(() => {

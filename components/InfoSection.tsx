@@ -23,7 +23,7 @@ interface InfoSectionProps {
 const InfoSection: React.FC<InfoSectionProps> = ({ cards }) => {
   return (
     <div className='bg-gray-50'>
-     <div className='container mx-auto pt-40 pb-40 px-16'>
+     <div className='container mx-auto pt-40 pb-36 px-16'>
         <h2 className='text-5xl lg:text-7xl md:text-6xl font-bold text-center mb-12'>Why Choose PearTech?</h2>
         <div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
             {cards.map((card, index) => (

@@ -55,7 +55,7 @@ const Navbar = () => {
                   <Link href='/'>Shop</Link>
                 </li>
                 <li className='p-4'>
-                  <Link href='/'>About</Link>
+                  <Link href='http://localhost:3001/about'>About</Link>
                 </li>
                 <li className='p-4'>
                   <Link href='http://localhost:3001/contact'>Contact</Link>

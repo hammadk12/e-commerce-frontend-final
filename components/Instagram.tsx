@@ -13,9 +13,10 @@ type socialImg = {
 
 const Instagram = () => {
   return (
+  <div className='bg-gray-50 border-b-2 border-black'>
     <div className='max-w-[1240px] mx-auto text-center py-24'>
-        <p className='text-2xl font-bold'>Follow us on Instagram</p>
-        <p className='pb-4'>PearTech</p>
+        <p className='text-3xl lg:text-5xl font-bold pb-4'>Follow us on Instagram</p>
+        <p className='pb-4 text-xl'>@PearTech</p>
         <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2 p-4'>
             <Instagramimg socialImg={photo1}/>
             <Instagramimg socialImg={photo2}/>
@@ -24,6 +25,7 @@ const Instagram = () => {
             <Instagramimg socialImg={photo5}/>
             <Instagramimg socialImg={photo6}/>
         </div>
+    </div>
     </div>
   )
 }
