@@ -29,8 +29,9 @@ if(!Array.isArray(slides) || slides.length <= 0) {
 }
 
   return (
-    <div id='gallery' className='max-w-[1240px]  max-h-[1200px] mx-auto'>
-        <h1 className='text-2xl font-bold text-center p-4'>Gallery</h1>
+    <div id='gallery' className='w-full  max-h-[1200px] mx-auto bg-gray-50'>
+        <h1 className='text-4xl lg:text-6xl md:text-5xl font-bold text-center pt-10 pb-5'>Gallery</h1>
+        <p className='pb-5 text-2xl text-center'>New products. New Designs. New things for you.</p>
          <div className='relative w-full h-[600px]'> {/* Fixed height container */}
          {slides.map((slide, index) => (
           <div 

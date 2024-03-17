@@ -8,6 +8,7 @@ const Navbar = () => {
   const [color, setColor] = useState('bg-transparent')
   const [textColor, setTextColor] = useState('text-white')
   const [borderStyle, setBorderStyle] = useState('');
+  const [iconColor, setIconColor] = useState('white')
 
   const handleNav = () => {
     setNav(!nav)
@@ -24,10 +25,12 @@ const Navbar = () => {
         setColor('bg-white');
         setTextColor('text-black');
         setBorderStyle('border-b-2 border-black'); // Set border color to black when scrolled
+        setIconColor('black') // fixed icon color when scrolled
       } else {
         setColor('bg-transparent');
         setTextColor('text-white');
         setBorderStyle(''); 
+        setIconColor('white')
       }
     };
     window.addEventListener('scroll', changeStyle);
@@ -63,8 +66,8 @@ const Navbar = () => {
             </ul>
 
         {/* Mobile Button */}
-        <div onClick={handleNav} className='block sm:hidden z-10 cursor-pointer'>
-          {nav ? <AiOutlineClose size={20} style={{color: 'white'}}/> : <AiOutlineMenu size={20} style={{color: 'white'}}/>}
+        <div onClick={handleNav} className={`${iconColor} block sm:hidden z-10 cursor-pointer`}>
+          {nav ? <AiOutlineClose size={20} style={{color: 'white'}}/> : <AiOutlineMenu size={20} />}
         </div>
         {/* Mobile Menu */}
         <div className={

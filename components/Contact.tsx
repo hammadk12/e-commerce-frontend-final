@@ -52,19 +52,21 @@ const Contact = () => {
 };
 
 return (
-    <div className='max-w-[1240px] m-auto p-4 h-screen'>
-        <h1 className='text-2xl font-bold text-center p-4'>Contact Us</h1>
-        <form className='max-w-[600px] m-auto' onSubmit={handleSubmit}>
-            <div className='grid grid-cols-2 gap-2'>
-                <input className="border shadow-lg p-3" type='text' name='name' placeholder='Name' value={formData.name} onChange={handleChange} required />
-                <input className="border shadow-lg p-3" type='text' name='email' placeholder='Email' value={formData.email} onChange={handleChange} required />
-            </div>
-            <input className="border shadow-lg p-3 w-full my-2" type='text' name='subject' placeholder='Subject' value={formData.subject} onChange={handleChange} required />
-            <textarea className="border shadow-lg p-3 w-full" name='message' placeholder='Message' value={formData.message} cols={30} rows={10} onChange={handleChange} required ></textarea>
-            <button className='border shadow-lg p-3 w-full mt-2' type='submit'>Submit</button>
-        </form>
-        <ToastContainer />
+    <div className='bg-gray-50'>
+    <div className='max-w-4xl mx-auto p-4 h-screen'> {/* Adjusted max-width */}
+      <h1 className='text-3xl font-bold text-center p-4'>Contact Us</h1>
+      <form className='w-3/4 mx-auto' onSubmit={handleSubmit}> {/* Adjusted width */}
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-4'> {/* Responsive grid layout */}
+          <input className="border shadow-lg p-4 w-full text-lg" type='text' name='name' placeholder='Name' value={formData.name} onChange={handleChange} required />
+          <input className="border shadow-lg p-4 w-full text-lg" type='text' name='email' placeholder='Email' value={formData.email} onChange={handleChange} required />
+        </div>
+        <input className="border shadow-lg p-4 w-full text-lg my-4" type='text' name='subject' placeholder='Subject' value={formData.subject} onChange={handleChange} required />
+        <textarea className="border shadow-lg p-4 w-full text-lg resize-none" name='message' placeholder='Message' value={formData.message} cols={30} rows={10} onChange={handleChange} required ></textarea>
+        <button className='border shadow-lg p-4 w-full text-lg mt-4' type='submit'>Submit</button>
+      </form>
+      <ToastContainer />
     </div>
+  </div>
 )
 }
 
