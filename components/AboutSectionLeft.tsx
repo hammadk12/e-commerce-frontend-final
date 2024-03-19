@@ -1,5 +1,5 @@
 import React from 'react'
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 
 interface AboutSectionLeftProps {
     imageUrl: string;
@@ -13,15 +13,17 @@ interface AboutSectionLeftProps {
 const AboutSectionLeft: React.FC<AboutSectionLeftProps> = ({ imageUrl, altText, heading, content, width, height }) => {
   return (
     <div className="flex flex-col md:flex-row items-center justify-center gap-4 p-4">
-      <div className="w-full md:w-1/2 h-auto relative">
-      <Image src={imageUrl} alt={altText} width={width} height={height} objectFit='cover' />
+      <div className="w-full md:w-1/2 h-auto relative shadow-lg rounded-lg overflow-hidden">
+        <div style={{ minHeight: '400px' }}> 
+        <Image src={imageUrl} alt={altText} width={width} height={height} objectFit='cover'/>
       </div>
-      <div className="w-full md:w-1/2">
-            <h2 className='text-2xl font-bold mb-3'>The Beginning</h2>
-            <p>PearTech started as a small startup out of Ocala, Florida.</p>
-        </div>
-    </div>
-  )
-}
+      </div>
+      <div className="w-full md:w-1/2 bg-white p-6 shadow-lg rounded-lg">
+        <h2 className='text-2xl font-bold mb-3'>{heading}</h2>
+        <p>{content}</p>
+      </div>
+      </div>
+  );
+};
 
-export default AboutSectionLeft
+export default AboutSectionLeft;

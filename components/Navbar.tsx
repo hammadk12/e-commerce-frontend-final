@@ -5,10 +5,8 @@ import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
 // Changing state so mobile menu is not always showing
 const Navbar = () => {
   const [nav, setNav] = useState(false)
-  const [color, setColor] = useState('bg-transparent')
-  const [textColor, setTextColor] = useState('text-white')
-  const [borderStyle, setBorderStyle] = useState('');
-  const [iconColor, setIconColor] = useState('white')
+  const [isVisible, setIsVisible] = useState(true); // New visibility state
+  const [iconColor, setIconColor] = useState('white'); // State for icon color 
 
   const handleNav = () => {
     setNav(!nav)
@@ -21,18 +19,13 @@ const Navbar = () => {
 
   useEffect(() => {
     const changeStyle = () => {
-      if(window.scrollY >= 600) {
-        setColor('bg-white');
-        setTextColor('text-black');
-        setBorderStyle('border-b-2 border-black'); // Set border color to black when scrolled
-        setIconColor('black') // fixed icon color when scrolled
-      } else {
-        setColor('bg-transparent');
-        setTextColor('text-white');
-        setBorderStyle(''); 
-        setIconColor('white')
-      }
+      const scrolled = window.scrollY > 700;
+      setIsVisible(!scrolled);
+
+      // Update icon color based on scroll position
+      setIconColor(scrolled ? 'black' : 'white');
     };
+
     window.addEventListener('scroll', changeStyle);
 
     return () => {
@@ -41,13 +34,13 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div style={{ transition: 'background-color 0.3s ease-in-out, border-color 0.3s ease-in-out, color 0.3s ease-in-out' }} 
-         className={`${color} ${textColor} ${borderStyle} fixed left-0 top-0 w-full z-20`}>
-        <div className='max-w-[1240px] m-auto flex justify-between items-center p-4'>
+    <div  style={{ transition: 'opacity 0.3s ease-in-out' }} 
+    className={`fixed left-0 top-0 w-full z-20 ${isVisible ? '' : 'opacity-0'}`}>
+        <div className='max-w-[1240px] m-auto flex justify-between items-center p-4 bg-transparent text-white'>
             <Link href='/'>
-              <h1 className={`font-bold text-4xl ${textColor}`}>PearTech</h1>
+              <h1 className='font-bold text-4xl'>PearTech</h1>
             </Link>
-            <ul className={`hidden sm:flex text-xl ${textColor}`}>
+            <ul className='hidden sm:flex text-xl'>
                 <li className='p-4'>
                   <Link href='/'>Home</Link>
                 </li>
@@ -84,7 +77,7 @@ const Navbar = () => {
                   <Link href='/' onClick={handleLinkClick}>Shop</Link>
                 </li>
                 <li className='p-4 text-4xl hover:scale-110 transition-transform duration-300'>
-                  <Link href='/' onClick={handleLinkClick}>About</Link>
+                  <Link href='http://localhost:3001/about' onClick={handleLinkClick}>About</Link>
                 </li>
                 <li className='p-4 text-4xl hover:scale-110 transition-transform duration-300'>
                   <Link href='http://localhost:3001/contact' onClick={handleLinkClick}>Contact</Link>
