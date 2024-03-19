@@ -1,12 +1,13 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import Hero from '../components/Hero'
 import Head from 'next/head'
 import About from '../components/About'
 
 const about: React.FC = () => {
+  const aboutRef = useRef<HTMLDivElement>(null);
 
 const scrollToSection = () => {
-    document.getElementById('targetSectionId')?.scrollIntoView({ behavior: 'smooth' });
+    aboutRef.current?.scrollIntoView({ behavior: 'smooth' });
 }
 
   return (
@@ -23,7 +24,7 @@ const scrollToSection = () => {
           message2='Explore'
           onClickExplore={scrollToSection}
           />
-        <About />
+        <About  ref={aboutRef} />
     </div>
   )
 }
