@@ -36,7 +36,7 @@ const Navbar = () => {
   return (
     <div  style={{ transition: 'opacity 0.3s ease-in-out' }} 
     className={`fixed left-0 top-0 w-full z-20 ${isVisible ? '' : 'opacity-0'}`}>
-        <div className='max-w-[1240px] m-auto flex justify-between items-center p-4 bg-transparent text-white'>
+        <div className='max-w-[1240px] m-auto flex justify-between items-center p-5 bg-transparent text-white'>
             <Link href='/'>
               <h1 className='font-bold text-4xl'>PearTech</h1>
             </Link>
