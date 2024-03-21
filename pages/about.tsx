@@ -2,13 +2,15 @@ import React, { useRef } from 'react'
 import Hero from '../components/Hero'
 import Head from 'next/head'
 import About from '../components/About'
+import useScrollTo from '../hooks/useScrollTo'
 
 const about: React.FC = () => {
   const aboutRef = useRef<HTMLDivElement>(null);
 
-const scrollToSection = () => {
+  const scrollToAboutSection = () => {
     aboutRef.current?.scrollIntoView({ behavior: 'smooth' });
-}
+  };
+
 
   return (
     <div>
@@ -22,9 +24,9 @@ const scrollToSection = () => {
           heading='About' 
           message='Learn about our mission, our journey, and our passionate team.' 
           message2='Explore'
-          onClickExplore={scrollToSection}
+          onClickExplore={scrollToAboutSection} // Scroll function from the custom hook
           />
-        <About  ref={aboutRef} />
+        <About ref={aboutRef} />
     </div>
   )
 }
