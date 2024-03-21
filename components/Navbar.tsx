@@ -54,7 +54,7 @@ const Navbar = () => {
                   <Link href='http://localhost:3001/contact'>Contact</Link>
                 </li>
                 <li className='p-4'>
-                  <Link href='/'>Login</Link>
+                  <Link href='http://localhost:3001/login'>Login</Link>
                 </li>
             </ul>
 
@@ -83,7 +83,7 @@ const Navbar = () => {
                   <Link href='http://localhost:3001/contact' onClick={handleLinkClick}>Contact</Link>
                 </li>
                 <li className='p-4 text-4xl hover:scale-110 transition-transform duration-300'>
-                  <Link href='/' onClick={handleLinkClick}>Login</Link>
+                  <Link href='http://localhost:3001/login' onClick={handleLinkClick}>Login</Link>
                 </li>
           </ul>
         </div>
