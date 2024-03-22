@@ -1,16 +1,26 @@
-import React, { forwardRef } from 'react'
+import React, { forwardRef, useContext, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Image from 'next/image'
 import myImage from '../public/images.jpg'
 import useScrollTo from '../hooks/useScrollTo'
+import { ScrollContext } from './ScrollContext'
 
 const About = forwardRef<HTMLDivElement>((props, ref) => {
   const router = useRouter();
   const { scrollTo: scrollToInternalSection, ref: internalSectionRef } = useScrollTo();
+  const { lastScrollPosition, setLastScrollPosition } = useContext(ScrollContext);
+
+  useEffect(() => {
+    if (lastScrollPosition !== 0) {
+      window.scrollTo(0, lastScrollPosition);
+    }
+  }, [lastScrollPosition]);
 
   const handleNavigation = (path: string) => {
-    router.push(path);
+      setLastScrollPosition(window.scrollY); // Save current scroll position
+      router.push(path);
   }
+
 
   return (
     // First About Section

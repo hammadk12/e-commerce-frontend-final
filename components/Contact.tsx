@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { ScrollContext } from './ScrollContext';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Contact = () => {
+
     const [formData, setFormData] = useState({
         name: '',
         email: '',
