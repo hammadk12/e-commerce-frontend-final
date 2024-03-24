@@ -28,6 +28,9 @@ const About = forwardRef<HTMLDivElement>((props, ref) => {
       router.push(path);
   }
 
+  const handleCardClick = () => {
+    router.push('/products')
+  }
 
   return (
     // First About Section
@@ -83,11 +86,12 @@ const About = forwardRef<HTMLDivElement>((props, ref) => {
     </div>
      {/* Fourth About Section */} 
         <div className='container mx-auto p-4'>
-          <h2 className='text-3xl lg:text-5xl md:text-4xl text-center font-bold mb-20'>Take a look at our gallery</h2>
-          <div className='grid grid-cols-1 md:grid-cols-3 gap-4'>
-            <ImageCard imageUrl='/photo9.avif' altText='Various Apple Products'/>
-            <ImageCard imageUrl='/photo10.avif' altText='Apple Watch & Laptop'/>
-            <ImageCard imageUrl='/photo11.avif' altText='Tech Products'/>
+          <h2 className='text-3xl lg:text-5xl md:text-4xl text-left font-bold mt-20 mb-10'>Explore Our Gallery.</h2>
+          <p className='text-xl mb-10'>We continue to improve and deliver the best quality for our customers.</p>
+          <div className='grid grid-cols-1 md:grid-cols-3 gap-4 hover:scale-110 transition-transform duration-300 ease-in-out cursor-pointer'>
+            <ImageCard imageUrl='/photo9.avif' altText='Various Apple Products' onClick={handleCardClick}/>
+            <ImageCard imageUrl='/photo10.avif' altText='Apple Watch & Laptop' onClick={handleCardClick}/>
+            <ImageCard imageUrl='/photo11.avif' altText='Tech Products' onClick={handleCardClick}/>
           </div>
         </div>
     </div>

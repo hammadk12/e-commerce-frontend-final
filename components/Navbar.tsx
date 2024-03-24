@@ -45,7 +45,7 @@ const Navbar = () => {
                   <Link href='/'>Home</Link>
                 </li>
                 <li className='p-4'>
-                  <Link href='/'>Shop</Link>
+                  <Link href='http://localhost:3001/products'>Shop</Link>
                 </li>
                 <li className='p-4'>
                   <Link href='http://localhost:3001/about'>About</Link>
@@ -74,7 +74,7 @@ const Navbar = () => {
                   <Link href='/' onClick={handleLinkClick}>Home</Link>
                 </li>
                 <li className='p-4 text-4xl hover:scale-110 transition-transform duration-300'>
-                  <Link href='/' onClick={handleLinkClick}>Shop</Link>
+                  <Link href='http://localhost:3001/products' onClick={handleLinkClick}>Shop</Link>
                 </li>
                 <li className='p-4 text-4xl hover:scale-110 transition-transform duration-300'>
                   <Link href='http://localhost:3001/about' onClick={handleLinkClick}>About</Link>
