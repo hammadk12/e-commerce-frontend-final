@@ -12,13 +12,19 @@ const About = forwardRef<HTMLDivElement>((props, ref) => {
   const { lastScrollPosition, setLastScrollPosition } = useContext(ScrollContext);
 
   useEffect(() => {
-    if (lastScrollPosition !== 0) {
-      window.scrollTo(0, lastScrollPosition);
+    const navigatingFromAbout = localStorage.getItem('navigatingFromAbout')
+    if (navigatingFromAbout && lastScrollPosition !== 0) {
+        window.scrollTo(0, lastScrollPosition);
+        setLastScrollPosition(0);
+        localStorage.removeItem('navigatingFromAbout')
     }
-  }, [lastScrollPosition]);
+  }, [lastScrollPosition, setLastScrollPosition]);
 
-  const handleNavigation = (path: string) => {
+  const handleNavigation = (path: string, fromAboutPage = false) => {
+    if (fromAboutPage) {
+      localStorage.setItem('navigatingFromAbout', 'true')
       setLastScrollPosition(window.scrollY); // Save current scroll position
+    }
       router.push(path);
   }
 
@@ -30,7 +36,7 @@ const About = forwardRef<HTMLDivElement>((props, ref) => {
         <h2 className='text-4xl lg:text-6xl md:text-5xl font-bold py-10'>Embracing Innovation,<br></br>Empowering Change.</h2>        
         <p className='pt-5 pb-14 text-xl lg:text-2xl'>PearTech is a pioneering technology company that blends advanced technology with user-centric designs to enhance everyday life and shape a connected future. Embracing innovation and continous improvement.</p>
         <button onClick={scrollToInternalSection} className='bg-black text-white px-6 py-4 text-md mr-5'>Learn More</button>
-        <button onClick={() => handleNavigation('/login')} className='bg-white text-black px-6 py-4 text-md border border-black'>Sign Up</button>
+        <button onClick={() => handleNavigation('/login', true)} className='bg-white text-black px-6 py-4 text-md border border-black'>Sign Up</button>
       </section>
 
     {/* Second About Section */}  
@@ -72,7 +78,7 @@ const About = forwardRef<HTMLDivElement>((props, ref) => {
       <div className="w-full md:w-1/2 px-10 pt-10 flex flex-col mb-20">
         <h2 className='text-3xl lg:text-5xl md:text-4xl font-bold my-10 text-left leading-tight'>Get in Touch - Inquiries</h2>
         <p className='text-xl flex-grow sm:mt-20 lg:mt-10'>Have questions or need assistance? PearTech is here to help. Our dedicated team is ready to address your inquiries and provide personalized support. Whether it’s about our products, services, or general queries, we're just a message away. Connect with us and experience customer service that truly cares about your needs.</p>
-        <button onClick={() => handleNavigation('/contact')} className='bg-white text-black px-6 py-4 text-md border border-black mt-10 sm:w-3/4 md:w-1/2 lg:w-1/4'>Contact</button>
+        <button onClick={() => handleNavigation('/contact', true)} className='bg-white text-black px-6 py-4 text-md border border-black mt-10 sm:w-3/4 md:w-1/2 lg:w-1/4'>Contact</button>
       </div>
     </div>
      {/* Fourth About Section */} 

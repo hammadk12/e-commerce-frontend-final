@@ -6,26 +6,30 @@ interface ScrollContextType {
     setLastScrollPosition: (position: number) => void;
 }
 
-export const ScrollContext = createContext<ScrollContextType>({
+const defaultValues: ScrollContextType = {
     lastScrollPosition: 0,
     setLastScrollPosition: () => {}
-});
+};
+
+export const ScrollContext = createContext<ScrollContextType>(defaultValues);
 
 interface ScrollProviderProps {
     children: ReactNode;
 }
 
 export const ScrollProvider: React.FC<ScrollProviderProps> = ({ children }) => {
-    const [lastScrollPosition, setLastScrollPosition] = useState(0);
+    const [lastScrollPosition, setLastScrollPosition] = useState<number>(0);
 
     useEffect(() => {
+        // Only retrieve the scroll position when component mounts
         const savedPosition = localStorage.getItem('lastScrollPosition');
         if (savedPosition) {
-            setLastScrollPosition(parseInt(savedPosition));
+            setLastScrollPosition(parseInt(savedPosition, 10));
         }
     }, []);
 
     useEffect(() => {
+        // Update local storage whenever lastScrollPosition changes
         localStorage.setItem('lastScrollPosition', lastScrollPosition.toString());
     }, [lastScrollPosition]);
 
