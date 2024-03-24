@@ -4,6 +4,7 @@ import Image from 'next/image'
 import myImage from '../public/images.jpg'
 import useScrollTo from '../hooks/useScrollTo'
 import { ScrollContext } from './ScrollContext'
+import ImageCard from './ImageCard'
 
 const About = forwardRef<HTMLDivElement>((props, ref) => {
   const router = useRouter();
@@ -74,7 +75,15 @@ const About = forwardRef<HTMLDivElement>((props, ref) => {
         <button onClick={() => handleNavigation('/contact')} className='bg-white text-black px-6 py-4 text-md border border-black mt-10 sm:w-3/4 md:w-1/2 lg:w-1/4'>Contact</button>
       </div>
     </div>
-
+     {/* Fourth About Section */} 
+        <div className='container mx-auto p-4'>
+          <h2 className='text-3xl lg:text-5xl md:text-4xl text-center font-bold mb-20'>Take a look at our gallery</h2>
+          <div className='grid grid-cols-1 md:grid-cols-3 gap-4'>
+            <ImageCard imageUrl='/photo9.avif' altText='Various Apple Products'/>
+            <ImageCard imageUrl='/photo10.avif' altText='Apple Watch & Laptop'/>
+            <ImageCard imageUrl='/photo11.avif' altText='Tech Products'/>
+          </div>
+        </div>
     </div>
    
   )
