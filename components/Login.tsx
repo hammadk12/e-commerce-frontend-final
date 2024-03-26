@@ -36,8 +36,9 @@ const Login = () => {
     };
 
       return (
-        <div className='container mx-auto p-4'>
-          <h2 className='text-6xl font-bold mt-60 mb-20'>Login</h2>
+        <div className='bg-gray-50'>
+        <div className='container mx-auto p-8 lg:p-6 md:p-4'>
+          <h2 className='text-6xl font-bold mt-40 mb-10'>Login</h2>
           <form onSubmit={handleSubmit} className='flex flex-col gap-4'>
             <input
               type='email'
@@ -63,6 +64,7 @@ const Login = () => {
               Register here
             </button>
           </p>
+        </div>
         </div>
       );
     };

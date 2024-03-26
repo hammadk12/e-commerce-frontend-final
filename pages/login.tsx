@@ -7,7 +7,7 @@ import Login from '../components/Login';
    return (
     <div>
       <Head>
-        <title>Contact Us - PearTech</title>
+        <title>Login/Register - PearTech</title>
         <meta name="description" content="Login or Register. Create an account for easy and accessible navigation." />
         <link rel="icon" href="/favicon.ico" />
         </Head>
