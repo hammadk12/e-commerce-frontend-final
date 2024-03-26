@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router'
 import React, { forwardRef, useState } from 'react'
 import axios from 'axios';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const Register = forwardRef<HTMLDivElement>((props, ref) => {
   // State for input fields
@@ -8,8 +9,13 @@ const Register = forwardRef<HTMLDivElement>((props, ref) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [errorMessage, setErrorMessage] = useState('')
+  const [passwordVisible, setPasswordVisible] = useState(false);
   
   const router = useRouter();
+
+  const togglePasswordVisibility = () => {
+    setPasswordVisible(!passwordVisible);
+  };
   
    // Validate email format
    const isValidEmail = (email: string): boolean => {
@@ -51,7 +57,7 @@ const handleSubmit = async (e: React.FormEvent) => {
   }
 
   try {
-    const reponse = await axios.post('/api/user/register', {
+    const reponse = await axios.post('http://localhost:3000/user/register', {
       username,
       email,
       password,
@@ -93,19 +99,27 @@ const navigateToLogin = () => {
                     required
                 />
                 {/* Password Input */}
+              <div className='relative'>
                 <input
-                    type='password'
+                    type={passwordVisible ? "text" : "password"}
                     placeholder='Password'
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className='p-4 border border-gray-300 rounded'
+                    className='w-full p-4 border border-gray-300 rounded pr-10'
                     required
                 />
+                <span className="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer" onClick={togglePasswordVisibility}>
+                  {passwordVisible ? <FaEyeSlash className="h-5 w-5 text-gray-700" /> : <FaEye className="h-5 w-5 text-gray-700" />}
+                </span>
+              </div>
                 {/* Error Message Display */}
                 {errorMessage && <p className='text-red-500'>{errorMessage}</p>}
+                
                 {/* Submit Button */}
                 <button type='submit' className='bg-black text-white p-4 rounded'>Register</button>
+            
             </form>
+            
             {/* Navigation to Login Page */}
             <p className='mt-4'>
                 Already have an account? 
@@ -113,6 +127,7 @@ const navigateToLogin = () => {
                     Login here
                 </button>
             </p>
+
         </div>
         </div>
     );
