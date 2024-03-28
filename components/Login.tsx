@@ -20,7 +20,7 @@ const Login = () => {
 
         try {
             // API call to backend for login
-            const response = await axios.post('/api/login', { email, password });
+            const response = await axios.post('http://localhost:3000/user/login', { email, password });
 
             // Navigate to user's profile dashboard on successful login
             router.push('/profile');
@@ -40,6 +40,14 @@ const Login = () => {
         <div className='container mx-auto p-8 lg:p-6 md:p-4'>
           <h2 className='text-6xl font-bold mt-40 mb-10'>Login</h2>
           <form onSubmit={handleSubmit} className='flex flex-col gap-4'>
+
+            {/* Display error message */}
+            {errorMessage && (
+              <div className="mb-4 text-sm text-red-600">
+                  {errorMessage}
+              </div>
+            )}
+
             <input
               type='email'
               placeholder='Email'
