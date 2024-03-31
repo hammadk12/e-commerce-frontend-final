@@ -22,6 +22,9 @@ const Login = () => {
             // API call to backend for login
             const response = await axios.post('http://localhost:3000/user/login', { email, password });
 
+            // Store the received token in localStorage
+            localStorage.setItem('token', response.data.token);
+            
             // Navigate to user's profile dashboard on successful login
             router.push('/profile');
         

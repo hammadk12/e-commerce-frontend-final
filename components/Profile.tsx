@@ -19,7 +19,10 @@ const Profile = () => {
     // Fetch user data on component mount
         const fetchUserData = async () => {
             try {
-                const response = await axios.get('http://localhost:3000/user/profile');
+                const token = localStorage.getItem('token');
+                const response = await axios.get('http://localhost:3000/user/profile', {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
                 setUserData(response.data);
             } catch (error) {
                 console.error('Error fetching user data', error);
@@ -70,39 +73,81 @@ const Profile = () => {
 
     // Conditional rendering for Edit and View modes
     return (
-        <div>
-            {editMode ? (
-                // Edit Mode: Render input fields to allow the user to edit their information
-                <div>
-                    <input 
-                        type="text" 
-                        name="username" 
-                        value={userData.username} 
-                        onChange={handleChange} 
-                    />
-                    <input 
-                        type="email" 
-                        name="email" 
-                        value={userData.email} 
-                        onChange={handleChange} 
-                    />
-                    {/* Add fields for other editable information */}
-                    <button onClick={handleSave}>Save</button>
-                    <button onClick={() => setEditMode(false)}>Cancel</button>
-                </div>
-            ) : (
-                // View Mode: Display user's information
-                <div>
-                    <p>Username: {userData.username}</p>
-                    <p>Email: {userData.email}</p>
-                    {/* Display other user information */}
-                    <button onClick={() => setEditMode(true)}>Edit</button>
-                    <button onClick={handleDeleteAccount}>Delete Account</button>
+        <div className='flex justify-center items-center p-4'>
+          <div className='max-w-md w-full bg-white shadow-md rounded p-6'>
+            {successMessage && (
+                <div className='bg-green-100 border border-green-800 text-green-700 px-4 py-3 rounded relative mb-4' role='alert'>
+                    <span className='block sm:inline'>{successMessage}</span>
                 </div>
             )}
+            
+            {errorMessage && (
+                <div className='bg-red-100 border border-red-800 text-red-700 px-4 py-3 rounded relative mb-4' role='alert'>
+                    <span className='block sm:inline'>{errorMessage}</span>
+                </div>
+            )}
+            
+            <div>
+                    <div className='mb-4'>
+                        <label htmlFor="username" className='font-semibold'>Username: </label>
+                        {editMode ? (
+                            <input 
+                                type="text" 
+                                id="username"
+                                name="username" 
+                                className='ml-2 w-auto p-2 border border-gray-300 rounded'
+                                value={userData.username} 
+                                onChange={handleChange} 
+                            />
+                        ) : (
+                            <span className='ml-2'>{userData.username}</span>
+                        )}
+                    </div>
+                    
+                    <div className='mb-4'>
+                        <label htmlFor="email" className='font-semibold'>Email: </label>
+                        {editMode ? (
+                            <input 
+                                type="email" 
+                                id="email"
+                                name="email" 
+                                className='ml-2 w-auto p-2 border border-gray-300 rounded'
+                                value={userData.email} 
+                                onChange={handleChange} 
+                            />
+                        ) : (
+                            <span className='ml-2'>{userData.email}</span>
+                        )}
+                    </div>
+
+                    <div className='mb-4'>
+                        <label htmlFor="password" className='font-semibold'>Password: </label>
+                        {editMode ? (
+                            <input 
+                                type="password" 
+                                id="password"
+                                name="password" 
+                                className='ml-2 w-auto p-2 border border-gray-300 rounded'
+                                value={userData.email} 
+                                onChange={handleChange} 
+                            />
+                        ) : (
+                            <span className='ml-2'>{userData.email}</span>
+                        )}
+                    </div>
+                    
+                    <div className='mt-4'>
+                        <button onClick={() => setEditMode(!editMode)} className='mr-2'>{editMode ? 'Save' : 'Edit'}</button>
+                        {!editMode && (
+                            <button onClick={handleDeleteAccount}>Delete Account</button>
+                        )}
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };
+
 
 
 export default Profile
