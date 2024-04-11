@@ -78,7 +78,7 @@ const navigateToLogin = () => {
   return (
     <div className='bg-gray-50'>
     <div ref={ref} className='container mx-auto p-8 lg:p-6 md:p-4'>
-            <h2 className='text-5xl md:text-6xl font-bold mt-40 mb-10'>Register</h2>
+            <h2 className='text-5xl md:text-6xl font-bold mt-40 mb-10'>Register Here</h2>
             <form onSubmit={handleSubmit} className='flex flex-col gap-4'>
                 {/* Username Input */}
                 <input
